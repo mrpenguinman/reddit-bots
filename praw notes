@@ -1,0 +1,27 @@
+Get a subreddit:
+	r.get_subreddit()
+	- Takes in the subreddit name. don't need the /r
+Get all comments in a subreddit
+	subreddit.get_comments()
+Get threads from a subreddit
+	subreddit.get_new()
+	subreddit.get_hot()
+	- get_popular might work too
+	- all take in the limit. default = 25
+
+Get comments from a thread
+	thread.comments
+flatten comments (So they aren't in the tree of comment + responses)
+	praw.helpers.flatten_tree(comments)
+To get more than the max number of comments in a thread
+	submission.replace_more_comments(limit=none, threshold=0)
+	all_comments = submission.comments
+
+
+
+Inspect an element from praw
+	>>> import praw
+	>>> from pprint import pprint
+	>>> r = praw.Reddit('Submission variables testing by /u/_daimon')
+	>>> submission = r.get_submission(submission_id = "105aru")
+	>>> pprint(vars(submission))
